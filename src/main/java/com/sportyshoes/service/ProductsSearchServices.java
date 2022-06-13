@@ -24,4 +24,5 @@ public class ProductsSearchServices {
     public List<Products> getAllProductbyProductType(String productType) {
         return productService.getAllProductsByProductType(productType);
     }
+
 }

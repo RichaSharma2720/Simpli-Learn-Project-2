@@ -11,12 +11,6 @@ public class Products {
 
     private int productquantity;
 
-    public Products(String productname, String producttype, int productquantity) {
-        this.productname = productname;
-        this.producttype = producttype;
-        this.productquantity = productquantity;
-    }
-
     public Integer getProductid() {
         return productid;
     }
@@ -47,15 +41,5 @@ public class Products {
 
     public void setProductquantity(int productquantity) {
         this.productquantity = productquantity;
-    }
-
-    @Override
-    public String toString() {
-        return "Products{" +
-                "productid=" + productid +
-                ", productname='" + productname + '\'' +
-                ", producttype='" + producttype + '\'' +
-                ", productquantity=" + productquantity +
-                '}';
     }
 }

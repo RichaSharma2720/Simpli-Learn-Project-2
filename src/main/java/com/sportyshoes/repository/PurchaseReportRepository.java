@@ -1,4 +1,4 @@
-package com.sportyshoes.DAO.repository;
+package com.sportyshoes.repository;
 
 import com.sportyshoes.DTO.Products;
 import com.sportyshoes.DTO.PurchaseReport;
@@ -15,6 +15,13 @@ import java.util.List;
 
 @Repository
 public interface PurchaseReportRepository extends JpaRepository<PurchaseReportModel, Integer> {
+    List<PurchaseReportModel> findByPurchaseReportCategoryEqualsIgnoreCase(String purchaseReportCategory);
+
+    List<PurchaseReportModel> findByPurchaseReportDateEquals(String purchaseReportDate);
+
+    List<PurchaseReportModel> findByUserId_IdEquals(Integer id);
+
+    List<PurchaseReportModel> findByProductid_ProductidEquals(Integer productid);
 
 //	@Query("SELECT * FROM PurchaseReportModel pr INNER JOIN pr.user us")
 //	public List<User> findByUserId();
@@ -24,7 +31,7 @@ public interface PurchaseReportRepository extends JpaRepository<PurchaseReportMo
 //
 //
 //	@Query("SELECT * FROM PurchaseReportModel pr where pr.purchasereportcatagory =:purchasereportcatagory")
-//	public List<PurchaseReport> findByPurchaseReportCategory(@Param("purchasereportcatagory") String purchasereportcatagory);
+//	public List<PurchaseReportModel> findByPurchaseReportCategory(@Param("purchasereportcatagory") String purchasereportcatagory);
 //
 //	@Query("SELECT * FROM PurchaseReportModel pr where pr.purchasereportdate =:purchasereportdate")
 //	public List<PurchaseReport> findByPurchaseReportDate(@Param("purchasereportdate") String purchasereportdate);

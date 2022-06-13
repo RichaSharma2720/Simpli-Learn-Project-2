@@ -1,4 +1,4 @@
-package com.sportyshoes.DAO.repository;
+package com.sportyshoes.repository;
 
 import com.sportyshoes.model.UserModel;
 import org.springframework.data.jpa.repository.JpaRepository;

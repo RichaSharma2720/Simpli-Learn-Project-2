@@ -4,13 +4,14 @@ import com.sportyshoes.DTO.Products;
 import com.sportyshoes.DTO.User;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name="purchasereport")
 public class PurchaseReportModel {
 	@Id
+	@Column(name = "purchasereportid")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="purchasereportid")
 	private Integer purchaseReportId;
 	
 	@Column(name="purchasereportcatagory")
@@ -19,7 +20,13 @@ public class PurchaseReportModel {
 	@Column(name="purchasereportdate")
 	private String purchaseReportDate;
 
+	@ManyToOne(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
+	@JoinColumn(name = "userId")
+	private UserModel userId;
 
+	@ManyToOne(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
+	@JoinColumn(name = "productid")
+	private ProductsModel productid;
 
 	public Integer getPurchaseReportId() {
 		return purchaseReportId;
@@ -45,9 +52,19 @@ public class PurchaseReportModel {
 		this.purchaseReportDate = purchaseReportDate;
 	}
 
-
-	public PurchaseReportModel() {
+	public UserModel getUserId() {
+		return userId;
 	}
 
+	public void setUserId(UserModel userId) {
+		this.userId = userId;
+	}
 
+	public ProductsModel getProductid() {
+		return productid;
+	}
+
+	public void setProductid(ProductsModel productid) {
+		this.productid = productid;
+	}
 }

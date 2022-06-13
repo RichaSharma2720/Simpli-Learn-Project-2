@@ -12,8 +12,8 @@ import javax.persistence.Table;
 public class UserModel {
 
 	@Id
-	@Column(unique = true,nullable = false)
-	@GeneratedValue(strategy = GenerationType.AUTO)
+//	@Column(unique = true,nullable = false)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
 	private String firstName;

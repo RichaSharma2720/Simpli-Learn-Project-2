@@ -9,7 +9,7 @@ import com.sportyshoes.assembler.ProductAssembler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import com.sportyshoes.model.ProductsModel;
-import com.sportyshoes.DAO.repository.ProductRepository;
+import com.sportyshoes.repository.ProductRepository;
 import com.sportyshoes.DAO.ProductService;
 
 @Component

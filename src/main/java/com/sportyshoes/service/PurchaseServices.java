@@ -39,4 +39,12 @@ public class PurchaseServices {
     public List<PurchaseReport> getAllPurchaseReportsByPurchaseReportDate(String purchaseReportDate) {
         return service.getAllPurchaseReportsByPurchaseReportDate(purchaseReportDate);
     }
+
+    public List<PurchaseReport> getAllPurchaseReportsByUserId(Integer id) {
+        return service.findByUserId(id);
+    }
+
+    public List<PurchaseReport> getAllPurchaseReportsByProductId(Integer id) {
+        return service.findByProductId(id);
+    }
 }

@@ -1,7 +1,7 @@
 package com.sportyshoes.DAO.impl;
 
 import com.sportyshoes.DAO.UserService;
-import com.sportyshoes.DAO.repository.UserRepository;
+import com.sportyshoes.repository.UserRepository;
 import com.sportyshoes.DTO.User;
 import com.sportyshoes.assembler.UserAssembler;
 import com.sportyshoes.exception.BusinessException;

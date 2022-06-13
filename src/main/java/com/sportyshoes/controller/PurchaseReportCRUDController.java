@@ -19,15 +19,15 @@ public class PurchaseReportCRUDController {
 
 	private MultiValueMap<String, String> errorMap;
 
-	@PostMapping("/PurchaseReportModel")
+	@PostMapping("/PurchaseReportModel/create")
 	public PurchaseReport createPurchaseReport(@RequestBody PurchaseReport purchaseReport) {
 		return service.createPurchaseReport(purchaseReport);
 	}
 
-	@PutMapping("/PurchaseReportModel")
-	public PurchaseReport updatePurchaseReport(@RequestBody PurchaseReport purchaseReport) {
-		return service.updatePurchaseReport(purchaseReport);
-	}
+//	@PutMapping("/PurchaseReportModel")
+//	public PurchaseReport updatePurchaseReport(@RequestBody PurchaseReport purchaseReport) {
+//		return service.updatePurchaseReport(purchaseReport);
+//	}
 
 	@GetMapping("/PurchaseReportModel/{id}")
 	public ResponseEntity<PurchaseReport> getPurchaseReportById(@PathVariable int id) {

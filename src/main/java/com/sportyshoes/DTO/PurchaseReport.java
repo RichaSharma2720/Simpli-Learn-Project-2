@@ -4,6 +4,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import java.util.List;
 
 public class PurchaseReport {
 
@@ -13,9 +14,9 @@ public class PurchaseReport {
 
     private String purchaseReportDate;
 
+    private Products productid;
 
-
-
+    private User userId;
 
     public Integer getPurchaseReportId() {
         return purchaseReportId;
@@ -39,5 +40,21 @@ public class PurchaseReport {
 
     public void setPurchaseReportDate(String purchaseReportDate) {
         this.purchaseReportDate = purchaseReportDate;
+    }
+
+    public Products getProductid() {
+        return productid;
+    }
+
+    public void setProductid(Products productid) {
+        this.productid = productid;
+    }
+
+    public User getUserId() {
+        return userId;
+    }
+
+    public void setUserId(User userId) {
+        this.userId = userId;
     }
 }

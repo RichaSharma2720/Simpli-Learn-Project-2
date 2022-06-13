@@ -20,8 +20,8 @@ public interface PurchaseReportService {
 	public List<PurchaseReport> getAllPurchaseReportsByPurchaseReportDate(String PurchaseReportDate);
 
 
-	public List<User> findByUserId();
-	public List<Products> findByProductId();
+	public List<PurchaseReport> findByUserId(Integer id);
+	public List<PurchaseReport> findByProductId(Integer id);
 
 
 }

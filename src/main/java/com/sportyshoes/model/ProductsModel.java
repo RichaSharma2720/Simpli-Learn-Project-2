@@ -13,7 +13,8 @@ import javax.persistence.Table;
 @Table(name = "UserProducts")
 public class ProductsModel {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+//    @Column(unique = true, nullable = false,name = "pid")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "pid")
     private Integer productid;
 
@@ -25,9 +26,6 @@ public class ProductsModel {
 
     @Column(name = "pquantity")
     private int productquantity;
-
-    public ProductsModel() {
-    }
 
     public Integer getProductid() {
         return productid;
@@ -60,13 +58,4 @@ public class ProductsModel {
     public void setProductquantity(int productquantity) {
         this.productquantity = productquantity;
     }
-    
-    public ProductsModel(String pType, int pQ, String pN) {
-		super();
-		this.producttype = pType;
-		this.productquantity = pQ;
-		this.productname= pN;
-	}
-
-
 }
