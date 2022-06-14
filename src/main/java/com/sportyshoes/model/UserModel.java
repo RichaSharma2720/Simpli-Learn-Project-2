@@ -27,6 +27,17 @@ public class UserModel {
 	@Column(length = 60)
 	private String password;
 
+	public UserModel() {
+	}
+
+	public UserModel(String firstName, String lastName, String role, String email, String password) {
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.role = role;
+		this.email = email;
+		this.password = password;
+	}
+
 	public Integer getId() {
 		return id;
 	}

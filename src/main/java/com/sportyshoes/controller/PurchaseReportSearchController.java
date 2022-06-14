@@ -31,14 +31,14 @@ public class PurchaseReportSearchController {
 	}
 
 
-	@GetMapping("/PurchaseReportModel/PurchaseReportUser/")
-	public List<PurchaseReport> getAllPurchaseReportsByUserID(@RequestParam Integer userid) {
-		return service.getAllPurchaseReportsByUserId(userid);
-	}
+//	@GetMapping("/PurchaseReportModel/PurchaseReportUser/")
+//	public List<PurchaseReport> getAllPurchaseReportsByUserID(@RequestParam Integer userid) {
+//		return service.getAllPurchaseReportsByUserId(userid);
+//	}
 
-	@GetMapping("/PurchaseReportModel/PurchaseReportProduct/")
-	public List<PurchaseReport> getAllPurchaseReportsByProductID(@RequestParam Integer productid) {
-		return service.getAllPurchaseReportsByProductId(productid);
-	}
+//	@GetMapping("/PurchaseReportModel/PurchaseReportProduct/")
+//	public List<PurchaseReport> getAllPurchaseReportsByProductID(@RequestParam Integer productid) {
+//		return service.getAllPurchaseReportsByProductId(productid);
+//	}
 
 }

@@ -24,10 +24,10 @@ public class PurchaseReportCRUDController {
 		return service.createPurchaseReport(purchaseReport);
 	}
 
-//	@PutMapping("/PurchaseReportModel")
-//	public PurchaseReport updatePurchaseReport(@RequestBody PurchaseReport purchaseReport) {
-//		return service.updatePurchaseReport(purchaseReport);
-//	}
+	@PutMapping("/PurchaseReportModel/update")
+	public PurchaseReport updatePurchaseReport(@RequestBody PurchaseReport purchaseReport) {
+		return service.updatePurchaseReport(purchaseReport);
+	}
 
 	@GetMapping("/PurchaseReportModel/{id}")
 	public ResponseEntity<PurchaseReport> getPurchaseReportById(@PathVariable int id) {

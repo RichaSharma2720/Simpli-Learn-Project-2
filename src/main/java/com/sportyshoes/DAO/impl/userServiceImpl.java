@@ -8,6 +8,7 @@ import com.sportyshoes.exception.BusinessException;
 import com.sportyshoes.exception.UserAlreadyExistException;
 import com.sportyshoes.model.UserModel;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.security.InvalidParameterException;
@@ -21,6 +22,9 @@ public class userServiceImpl implements UserService {
     private UserRepository userRepository;
 
     @Autowired
+    private BCryptPasswordEncoder passwordEncoder;
+
+    @Autowired
     private UserAssembler assembler;
 
     @Override
@@ -28,6 +32,7 @@ public class userServiceImpl implements UserService {
         if(emailExists(user.getEmail())){
             throw new UserAlreadyExistException("There is an account with that email address: " + user.getEmail());
         }
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
         UserModel userModel = assembler.dtoToModel(user);
         UserModel result = userRepository.save(userModel);
         return assembler.modelToDTO(result);
@@ -75,7 +80,9 @@ public class userServiceImpl implements UserService {
     }
 
     @Override
-    public void changeUserPassword(String oldPassword, String newPassword) {
-
+    public void changeUserPassword(String oldPassword, String newPassword, String email) {
+        UserModel userModel = userRepository.findByEmail(email);
+        userModel.setPassword(passwordEncoder.encode(newPassword));
+        userRepository.save(userModel);
     }
 }

@@ -42,7 +42,7 @@ public class UserReportServices {
         return service.findUsersByName(name);
     }
 
-    public void changeUserPassword(String oldPassword, String newPassword) {
-        service.changeUserPassword(oldPassword,newPassword);
+    public void changeUserPassword(String oldPassword, String newPassword, String email) {
+        service.changeUserPassword(oldPassword,newPassword,email);
     }
 }

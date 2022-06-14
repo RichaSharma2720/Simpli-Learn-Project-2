@@ -17,5 +17,5 @@ public interface UserService {
 
 	public User findUserByEmail(String email);
 
-    public void changeUserPassword(String oldPassword, String newPassword);
+    public void changeUserPassword(String oldPassword, String newPassword, String email);
 }

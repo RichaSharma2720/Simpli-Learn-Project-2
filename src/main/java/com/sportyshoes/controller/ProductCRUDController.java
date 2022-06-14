@@ -22,7 +22,7 @@ public class ProductCRUDController {
 	public Products updateShoesProduct(@RequestBody Products product){
 		return productCRUDServices.updateShoesProduct(product);
 	}
-	@GetMapping("serach/shoes/{id}")
+	@GetMapping("search/shoes/{id}")
 	public Products getProductsById(@PathVariable int id){
 		return productCRUDServices.getProductsById(id);
 	}

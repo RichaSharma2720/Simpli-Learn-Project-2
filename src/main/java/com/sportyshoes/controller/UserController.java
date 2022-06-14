@@ -1,8 +1,11 @@
 package com.sportyshoes.controller;
 
 import com.sportyshoes.DTO.User;
+import com.sportyshoes.exception.InvalidOldPasswordException;
 import com.sportyshoes.service.UserReportServices;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,6 +15,9 @@ public class UserController {
 
 	@Autowired
 	private UserReportServices service;
+
+	@Autowired
+	private BCryptPasswordEncoder passwordEncoder;
 
 	private MultiValueMap<String, String> errorMap;
 
@@ -25,10 +31,17 @@ public class UserController {
 		service.deleteUser(email,password);
 	}
 
-	@PostMapping("/user/updatePassword")
+	@PutMapping("/user/updatePassword")
 	public String changeUserPassword(@RequestParam("oldPassword") String oldPassword,
-									 @RequestParam("newPassword") String newPassword){
-		service.changeUserPassword(oldPassword,newPassword);
+									 @RequestParam("newPassword") String newPassword) {
+
+		User user = service.findUserByEmail(
+				SecurityContextHolder.getContext().getAuthentication().getName()+"@gmail.com");
+
+		if(!passwordEncoder.encode(user.getPassword()).equals(oldPassword)){
+			throw new InvalidOldPasswordException();
+		}
+		service.changeUserPassword(oldPassword,newPassword, user.getEmail());
 		return "done";
 	}
 
